@@ -1,0 +1,29 @@
+Homework
+
+    [ ] The shading parameter should work
+        https://iros.github.io/patternfills/sample_css.html
+    [ ] Look up card shuffle algorithm to learn how to shuffle an array in place
+        make a shuffle function on the appmodel that applies the shuffle to the deck
+    [ ] Cards need to show up as a grid
+        - Style the card container to
+            display: flex
+            width: (3 cards wide)
+            you figure out how to tell flex to arrange new items to the side with wrapping (how to use flex in css)
+
+--- extra
+    [ ] Figure out how to do something when a user clicks on a card (just do a console.writeline)
+    [ ] Read about "mobx"
+        
+
+-- DONE ---------------------------
+
+    [x] Get all the card shapes to render efficiently in code like we did with the triangle
+    [x] Using CSS, make the card look more like cards using 
+        rounded corners
+        Shadows
+        Subtle border   
+    [x] in App.tsx, use map to render from a SetCardModel array instead of phyiscally adding the components.
+    [x] Create an AppModel
+        [x] Internally, generate an array of SetCardModel that represents all the cards
+        [x] Expose a SetCardModel array of just the cards that are on the table
+
