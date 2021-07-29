@@ -1,8 +1,10 @@
+import { observer } from "mobx-react";
 import React from "react";
 import { SetCardModel } from "../Models/SetCardModel";
 
 let patternCount = 0
 
+@observer
 export default class Card extends React.Component<{context:SetCardModel}>{
     render(){
         const card = this.props.context;
@@ -84,9 +86,12 @@ export default class Card extends React.Component<{context:SetCardModel}>{
             return createSvgPattern(points, (point, pattern, pointNumber) =>  <rect x={`${point.x}`} y = {`${point.y}`} width={`${s}`} height={`${s}`} fill={pattern} stroke={card.color} stroke-width="5" key={pointNumber} />)
         }
 
-        return <div className="card" style={{color:"red"}}>{renderCard()}
-              
-        
-        </div>
+        const handleCardClick = () => {
+            card.selected = true;
+        }
+
+
+
+        return <div className={card.selected ? "cardSelected" : "card"} style={{color:"red"}} onClick={handleCardClick}> {renderCard()} </div>
     }
 }

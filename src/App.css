@@ -25,6 +25,19 @@
   margin:30px;
 }
 
+.cardSelected {
+  height: 100px;
+  width: 100px;
+  border-radius: 25px;
+  box-shadow: 2px 1px 5px black;
+  border: 1px solid black;
+  background-color: rgb(124, 119, 119);
+  background-position: center;
+  background-size: 100px 100px;
+  margin:30px;
+
+}
+
 .cardContainer {
   margin: auto;
   background: red;
