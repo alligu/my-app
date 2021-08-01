@@ -55,7 +55,7 @@ export default class Card extends React.Component<{context:SetCardModel, appMode
                 case "stripes": 
                     const patternId = `diagonalHatch_${patternCount++}`
                     patternDef =  <pattern id={patternId} width="5" height="10" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse" >
-                                        <line x1="0" y1="0" x2="0" y2="10" stroke={card.color} stroke-width="5" />
+                                        <line x1="0" y1="0" x2="0" y2="10" stroke={card.color} strokeWidth="5" />
                                     </pattern>
                     pattern =  `url(#${patternId})`;
                     break;
@@ -72,21 +72,21 @@ export default class Card extends React.Component<{context:SetCardModel, appMode
             const points = getShapeStartPoints(
                 () => (w - ((card.count * s)  + (card.count - 1)*(s/4)))/2 + (s/2),
                 () => h/2);
-            return createSvgPattern(points, (point, pattern, pointNumber) =>  <circle cx={`${point.x}`} cy={`${point.y}`} r={`${s/2}`} fill={pattern} stroke={card.color} stroke-width="5" key={pointNumber}/>)
+            return createSvgPattern(points, (point, pattern, pointNumber) =>  <circle cx={`${point.x}`} cy={`${point.y}`} r={`${s/2}`} fill={pattern} stroke={card.color} strokeWidth="5" key={pointNumber}/>)
         }
 
         const renderCardHelperTriangle = () => {
             const points = getShapeStartPoints(
                 () => (w - ((card.count * s)  + (card.count - 1)*(s/4)))/2,
                 () => (h/2) + s/2);
-            return createSvgPattern(points, (point, pattern, pointNumber) =>  <polygon points={`${point.x},${point.y} ${point.x+ s},${point.y} ${point.x+(s/2)},${point.y-s}`} key={pointNumber} fill={pattern} stroke={card.color} stroke-width="5" />)
+            return createSvgPattern(points, (point, pattern, pointNumber) =>  <polygon points={`${point.x},${point.y} ${point.x+ s},${point.y} ${point.x+(s/2)},${point.y-s}`} key={pointNumber} fill={pattern} stroke={card.color} strokeWidth="5" />)
         }
 
         const renderCardHelperSquare = () => {
             const points = getShapeStartPoints(
                 () => (w - ((card.count * s)  + (card.count - 1)*(s/4)))/2,
                 () => (h/2 - s/2));
-            return createSvgPattern(points, (point, pattern, pointNumber) =>  <rect x={`${point.x}`} y = {`${point.y}`} width={`${s}`} height={`${s}`} fill={pattern} stroke={card.color} stroke-width="5" key={pointNumber} />)
+            return createSvgPattern(points, (point, pattern, pointNumber) =>  <rect x={`${point.x}`} y = {`${point.y}`} width={`${s}`} height={`${s}`} fill={pattern} stroke={card.color} strokeWidth="5" key={pointNumber} />)
         }
 
         const handleCardClick = () => {
