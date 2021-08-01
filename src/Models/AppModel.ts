@@ -1,10 +1,12 @@
+import { makeObservable, observable } from "mobx";
 import { SetCardModel } from "./SetCardModel";
 
 export class AppModel {
-    cardsOnTheTable: SetCardModel[];
+    @observable cardsOnTheTable: SetCardModel[];
     allCardsInDeck: SetCardModel[];
 
     constructor() {
+        makeObservable(this);
         this.allCardsInDeck =[];
         ["square","triangle","circle"].forEach(shape => {
             ["blue","green","red"].forEach(color => {
@@ -27,18 +29,21 @@ export class AppModel {
 
         }
         
-
         this.cardsOnTheTable = this.allCardsInDeck.slice(0,12);
+        this.allCardsInDeck = this.allCardsInDeck.slice(12);
+
     }
 
     checkForSet() {
         let selectedCount = 0;
         var selectedCards = [];
+        var selectedCardsIndices = [];
 
         for (let i = 0; i < this.cardsOnTheTable.length; i++) {
             if (this.cardsOnTheTable[i].selected) {
                 selectedCount+=1;
                 selectedCards.push(this.cardsOnTheTable[i]);
+                selectedCardsIndices.push(i);
             }
 
         }
@@ -132,6 +137,11 @@ export class AppModel {
             }     
             
             if (isASet) {
+                for (let i = 0; i < 3; i++) {
+                    this.cardsOnTheTable.splice(selectedCardsIndices[i], 1, this.allCardsInDeck[0]);
+                    this.allCardsInDeck = this.allCardsInDeck.slice(1);
+                }
+                console.log(this.cardsOnTheTable.length);
                 alert("is a set!");
             } else {
                 alert("is not a set");
