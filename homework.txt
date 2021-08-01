@@ -1,21 +1,31 @@
 Homework
 
-    [ ] The shading parameter should work
+    [ ] Show a message when the user has selected 3 cards.  Message says whether or not it is a set.
+        [ ] Hint1:  Add a method to AppModel called "checkForSet" 
+        [ ] Extra Hint: Look up getter and setter properties for Typescript for a fancier way to call checkForSet, because we don't want to have business logic in a component.
+            - What you want:  AppModel.checkForSet should be called automatically when SetCardModel.selected changes 
+    [ ] On a successful set, replace selected cards with 3 new cards
+    [ ] On an unsuccessful set, unselect the 3 cards
+    [ ] Add a score counter that increments with each set
+    [ ] Detect if the new cards will make a no set condition and reshuffle until it works
+
+
+--- extra
+
+-- DONE ---------------------------
+    [x] The shading parameter should work
         https://iros.github.io/patternfills/sample_css.html
-    [ ] Look up card shuffle algorithm to learn how to shuffle an array in place
+    [x] Look up card shuffle algorithm to learn how to shuffle an array in place
         make a shuffle function on the appmodel that applies the shuffle to the deck
-    [ ] Cards need to show up as a grid
+    [x] Cards need to show up as a grid
         - Style the card container to
             display: flex
             width: (3 cards wide)
             you figure out how to tell flex to arrange new items to the side with wrapping (how to use flex in css)
 
---- extra
-    [ ] Figure out how to do something when a user clicks on a card (just do a console.writeline)
-    [ ] Read about "mobx"
+    [x] Figure out how to do something when a user clicks on a card (just do a console.writeline)
+    [x] Read about "mobx"
         
-
--- DONE ---------------------------
 
     [x] Get all the card shapes to render efficiently in code like we did with the triangle
     [x] Using CSS, make the card look more like cards using 

@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <div className="cardContainer">
-        {theAppModel.cardsOnTheTable.map((card) => <Card context={card} key={card.key} />)}
+        {theAppModel.cardsOnTheTable.map((card) => <Card context={card} appModel = {theAppModel} key={card.key} />)}
       </div>
     </div>
   );

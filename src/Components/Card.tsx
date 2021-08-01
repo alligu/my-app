@@ -1,11 +1,14 @@
 import { observer } from "mobx-react";
 import React from "react";
+import App from "../App";
+import { AppModel } from "../Models/AppModel";
 import { SetCardModel } from "../Models/SetCardModel";
 
 let patternCount = 0
+let ap = new AppModel();
 
 @observer
-export default class Card extends React.Component<{context:SetCardModel}>{
+export default class Card extends React.Component<{context:SetCardModel, appModel:AppModel}>{
     render(){
         const card = this.props.context;
 
@@ -88,6 +91,8 @@ export default class Card extends React.Component<{context:SetCardModel}>{
 
         const handleCardClick = () => {
             card.selected = true;
+            this.props.appModel.checkForSet();
+            //ap.checkForSet();
         }
 
 
