@@ -51,6 +51,8 @@ export class AppModel {
         var diffCount = false;
         var samePattern = false;
         var diffPattern = false;
+
+        var isASet = false;
         if (selectedCount === 3) {
             if (selectedCards[0].shape === selectedCards[1].shape && selectedCards[1].shape === selectedCards[2].shape) {
                 sameShape = true;
@@ -78,56 +80,62 @@ export class AppModel {
             
             // all different
             if (diffShape && diffColor && diffCount && diffPattern) {
-                console.log("set");
+                isASet = true;
             }           
             
             // three same, one differet
             if (diffShape && sameColor && sameCount && samePattern) {
-                console.log("set");
+                isASet = true;
             }
             if (sameShape && diffColor && sameCount && samePattern) {
-                console.log("set");
+                isASet = true;
             }
             if (sameShape && sameColor && diffCount && samePattern) {
-                console.log("set");
+                isASet = true;
             }
             if (sameShape && sameColor && sameCount && diffPattern) {
-                console.log("set");
+                isASet = true;
             }
             
             // two same, two different
             if (diffShape && diffColor && sameCount && samePattern) {
-                console.log("set");
+                isASet = true;
             }
             if (diffShape && sameColor && diffCount && samePattern) {
-                console.log("set");
+                isASet = true;
             }  
             if (diffShape && sameColor && sameCount && diffPattern) {
-                console.log("set");
+                isASet = true;
             }  
             if (sameShape && diffColor && diffCount && samePattern) {
-                console.log("set");
+                isASet = true;
             }    
             if (sameShape && diffColor && sameCount && diffPattern) {
-                console.log("set");
+                isASet = true;
             }               
             if (sameShape && sameColor && diffCount && diffPattern) {
-                console.log("set");
+                isASet = true;
             }  
             
             // three diff, one same
             if (sameShape && diffColor && diffCount && diffPattern) {
-                console.log("set");
+                isASet = true;
             }    
             if (diffShape && sameColor && diffCount && diffPattern) {
-                console.log("set");
+                isASet = true;
             }
             if (diffShape && diffColor && sameCount && diffPattern) {
-                console.log("set");
+                isASet = true;
             }
             if (diffShape && diffColor && diffCount && samePattern) {
-                console.log("set");
-            }        
+                isASet = true;
+            }     
+            
+            if (isASet) {
+                alert("is a set!");
+            } else {
+                alert("is not a set");
+            }
 
         }
 
