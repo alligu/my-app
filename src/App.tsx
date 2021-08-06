@@ -1,4 +1,4 @@
-import { Observer, observer } from 'mobx-react';
+import { Observer } from 'mobx-react';
 import './App.css';
 import Card from './Components/Card';
 import { AppModel } from './Models/AppModel';

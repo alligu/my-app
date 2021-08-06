@@ -58,6 +58,7 @@ export class AppModel {
         var diffPattern = false;
 
         var isASet = false;
+
         if (selectedCount === 3) {
             if (selectedCards[0].shape === selectedCards[1].shape && selectedCards[1].shape === selectedCards[2].shape) {
                 sameShape = true;
@@ -87,64 +88,47 @@ export class AppModel {
             if (diffShape && diffColor && diffCount && diffPattern) {
                 isASet = true;
             }           
-            
+
             // three same, one differet
-            if (diffShape && sameColor && sameCount && samePattern) {
+            if ((diffShape && sameColor && sameCount && samePattern) || 
+                (sameShape && diffColor && sameCount && samePattern) ||
+                (sameShape && sameColor && diffCount && samePattern) ||
+                (sameShape && sameColor && sameCount && diffPattern)) {
                 isASet = true;
             }
-            if (sameShape && diffColor && sameCount && samePattern) {
-                isASet = true;
-            }
-            if (sameShape && sameColor && diffCount && samePattern) {
-                isASet = true;
-            }
-            if (sameShape && sameColor && sameCount && diffPattern) {
-                isASet = true;
-            }
-            
+                    
             // two same, two different
-            if (diffShape && diffColor && sameCount && samePattern) {
+            if ((diffShape && diffColor && sameCount && samePattern) ||
+                (diffShape && sameColor && diffCount && samePattern) ||
+                (diffShape && sameColor && sameCount && diffPattern) ||
+                (sameShape && diffColor && diffCount && samePattern) ||
+                (sameShape && diffColor && sameCount && diffPattern) ||
+                (sameShape && sameColor && diffCount && diffPattern)) {
                 isASet = true;
-            }
-            if (diffShape && sameColor && diffCount && samePattern) {
-                isASet = true;
-            }  
-            if (diffShape && sameColor && sameCount && diffPattern) {
-                isASet = true;
-            }  
-            if (sameShape && diffColor && diffCount && samePattern) {
-                isASet = true;
-            }    
-            if (sameShape && diffColor && sameCount && diffPattern) {
-                isASet = true;
-            }               
-            if (sameShape && sameColor && diffCount && diffPattern) {
-                isASet = true;
-            }  
+            }             
             
             // three diff, one same
-            if (sameShape && diffColor && diffCount && diffPattern) {
+            if ((sameShape && diffColor && diffCount && diffPattern) ||
+                (diffShape && sameColor && diffCount && diffPattern) ||
+                (diffShape && diffColor && sameCount && diffPattern) ||
+                (diffShape && diffColor && diffCount && samePattern)) {
                 isASet = true;
-            }    
-            if (diffShape && sameColor && diffCount && diffPattern) {
-                isASet = true;
-            }
-            if (diffShape && diffColor && sameCount && diffPattern) {
-                isASet = true;
-            }
-            if (diffShape && diffColor && diffCount && samePattern) {
-                isASet = true;
-            }     
+            }                 
             
             if (isASet) {
                 for (let i = 0; i < 3; i++) {
                     this.cardsOnTheTable.splice(selectedCardsIndices[i], 1, this.allCardsInDeck[0]);
                     this.allCardsInDeck = this.allCardsInDeck.slice(1);
                 }
-                console.log(this.cardsOnTheTable.length);
-                alert("is a set!");
+                //alert("is a set!");
             } else {
-                alert("is not a set");
+                for (let i = 0; i < 3; i++) {
+                    this.cardsOnTheTable[selectedCardsIndices[i]].selected = false;
+
+                }
+                selectedCount = 0;
+                selectedCards = [];
+                selectedCardsIndices = [];
             }
 
         }

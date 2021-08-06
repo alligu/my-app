@@ -5,7 +5,6 @@ import { AppModel } from "../Models/AppModel";
 import { SetCardModel } from "../Models/SetCardModel";
 
 let patternCount = 0
-let ap = new AppModel();
 
 @observer
 export default class Card extends React.Component<{context:SetCardModel, appModel:AppModel}>{
@@ -92,7 +91,6 @@ export default class Card extends React.Component<{context:SetCardModel, appMode
         const handleCardClick = () => {
             card.selected = true;
             this.props.appModel.checkForSet();
-            //ap.checkForSet();
         }
 
 
