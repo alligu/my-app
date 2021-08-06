@@ -4,9 +4,11 @@ import { SetCardModel } from "./SetCardModel";
 export class AppModel {
     @observable cardsOnTheTable: SetCardModel[];
     allCardsInDeck: SetCardModel[];
+    numberOfSets: number;
 
     constructor() {
         makeObservable(this);
+        this.numberOfSets = 0;
         this.allCardsInDeck =[];
         ["square","triangle","circle"].forEach(shape => {
             ["blue","green","red"].forEach(color => {
@@ -120,6 +122,7 @@ export class AppModel {
                     this.cardsOnTheTable.splice(selectedCardsIndices[i], 1, this.allCardsInDeck[0]);
                     this.allCardsInDeck = this.allCardsInDeck.slice(1);
                 }
+                this.numberOfSets+=1;
                 //alert("is a set!");
             } else {
                 for (let i = 0; i < 3; i++) {
@@ -129,6 +132,7 @@ export class AppModel {
                 selectedCount = 0;
                 selectedCards = [];
                 selectedCardsIndices = [];
+                //alert("is not a set!");
             }
 
         }

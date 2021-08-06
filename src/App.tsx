@@ -13,7 +13,10 @@ const theAppModel = new AppModel();
         <div className="App">
           <div className="cardContainer">
             {theAppModel.cardsOnTheTable.map((card) => <Card context={card} appModel = {theAppModel} key={card.key} />)} 
+            
           </div>
+          Number of Sets: 
+          {theAppModel.numberOfSets}
         </div>
       )}
     </Observer>
