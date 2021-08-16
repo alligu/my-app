@@ -11,12 +11,24 @@ const theAppModel = new AppModel();
     <Observer>
       {() => (
         <div className="App">
+          <div>
+            Number of Sets: 
+            {theAppModel.numberOfSets}   
+          </div>      
+          {
+            theAppModel.setMessage 
+              ? <div>
+                  {theAppModel.setMessage}
+                  <button onClick={()=> theAppModel.setMessage = undefined}>Dismiss</button>
+                </div>
+              : null
+          }
+          <div></div>
           <div className="cardContainer">
             {theAppModel.cardsOnTheTable.map((card) => <Card context={card} appModel = {theAppModel} key={card.key} />)} 
             
           </div>
-          Number of Sets: 
-          {theAppModel.numberOfSets}
+
         </div>
       )}
     </Observer>

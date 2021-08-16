@@ -1,6 +1,5 @@
 import { observer } from "mobx-react";
 import React from "react";
-import App from "../App";
 import { AppModel } from "../Models/AppModel";
 import { SetCardModel } from "../Models/SetCardModel";
 
