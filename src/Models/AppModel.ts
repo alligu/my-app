@@ -15,16 +15,13 @@ export class AppModel {
             ["blue","green","red"].forEach(color => {
                 [1,2,3].forEach(count => {
                     ["stripes","solid","clear"].forEach(pattern => {
-                        this.allCardsInDeck.push(new SetCardModel(shape, color, count, pattern));                              
-                    })
-            
+                        this.allCardsInDeck.push(new SetCardModel(shape, color, count, pattern, () => this.checkForSet()));                              
+                    })            
                 })
-            
             })
-            
         })
 
-        setInterval(()=>{this.numberOfSets++}, 1000)
+        //setInterval(()=>{this.numberOfSets++}, 1000)
 
         /*
         for (let i = this.allCardsInDeck.length - 1; i > 0; i--) {
@@ -138,7 +135,7 @@ export class AppModel {
     checkForSet() {
         const selectedCards = this.cardsOnTheTable.filter(card => card.selected);
         if(selectedCards.length < 3) return;
-        if(selectedCards.length > 3) throw Error("Whoops!  Too many cards selected")
+        if(selectedCards.length > 3) throw Error("Whoops! Too many cards selected")
 
         if(this.isASet2(selectedCards))
         {

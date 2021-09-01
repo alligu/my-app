@@ -89,10 +89,7 @@ export default class Card extends React.Component<{context:SetCardModel, appMode
 
         const handleCardClick = () => {
             card.selected = true;
-            this.props.appModel.checkForSet();
         }
-
-
 
         return <div className={card.selected ? "cardSelected" : "card"} style={{color:"red"}} onClick={handleCardClick}> {renderCard()} </div>
     }

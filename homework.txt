@@ -5,15 +5,15 @@ Homework
     [ ]  You are no longer allowed to call checkForSet from the UI code.  It should happen automatically inside appmodel
         Extra Hint: Look up getter and setter properties for Typescript for a fancier way to call checkForSet, because we don't want to have business logic in a component.
             - What you want:  AppModel.checkForSet should be called automatically when SetCardModel.selected changes 
-    [x] On a successful set, replace selected cards with 3 new cards
-    [x] On an unsuccessful set, unselect the 3 cards
-    [x] Add a score counter that increments with each set
     [ ] Detect if the new cards will make a no set condition and reshuffle until it works
 
 
 --- extra
 
 -- DONE ---------------------------
+    [x] On a successful set, replace selected cards with 3 new cards
+    [x] On an unsuccessful set, unselect the 3 cards
+    [x] Add a score counter that increments with each set
     [x] The shading parameter should work
         https://iros.github.io/patternfills/sample_css.html
     [x] Look up card shuffle algorithm to learn how to shuffle an array in place
