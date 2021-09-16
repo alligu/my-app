@@ -1,16 +1,15 @@
 Homework
-
-    [x] Show a message when the user has selected 3 cards.  Message says whether or not it is a set.
-        [ ] Hint1:  Add a method to AppModel called "checkForSet" 
-    [ ]  You are no longer allowed to call checkForSet from the UI code.  It should happen automatically inside appmodel
-        Extra Hint: Look up getter and setter properties for Typescript for a fancier way to call checkForSet, because we don't want to have business logic in a component.
-            - What you want:  AppModel.checkForSet should be called automatically when SetCardModel.selected changes 
     [ ] Detect if the new cards will make a no set condition and reshuffle until it works
 
 
 --- extra
 
 -- DONE ---------------------------
+    [x] Show a message when the user has selected 3 cards.  Message says whether or not it is a set.
+        [x] Hint1:  Add a method to AppModel called "checkForSet" 
+    [x]  You are no longer allowed to call checkForSet from the UI code.  It should happen automatically inside appmodel
+        Extra Hint: Look up getter and setter properties for Typescript for a fancier way to call checkForSet, because we don't want to have business logic in a component.
+            - What you want:  AppModel.checkForSet should be called automatically when SetCardModel.selected changes 
     [x] On a successful set, replace selected cards with 3 new cards
     [x] On an unsuccessful set, unselect the 3 cards
     [x] Add a score counter that increments with each set
